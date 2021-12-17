@@ -1,0 +1,6 @@
+build-job:
+  stage: build
+  tags:
+    - pwsh
+  script:
+    - whoami
