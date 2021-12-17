@@ -1,6 +1,5 @@
-build-job:
-  stage: build
-  tags:
-    - pwsh
+validate:
+  image: secsrv-cicd:2112
   script:
-    - whoami
+    - pwsh -Command 'Invoke-ScriptAnalyzer -EnableExit code/*.ps1'
+
