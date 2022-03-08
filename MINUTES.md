@@ -1,29 +1,4 @@
 
-# Møtereferat 2.mars
-
-1. Gå igjennom prosjektet/prosjektbeskrivelsen, bli enig om bedrift
-    * Bedrift for prosjekt: Hotell
-
-2. Møtetider
-    * Faste møter tirsdager 14.15-16.00, i tillegg til andre møter når det passer for alle. Se prosjektplan for oversikt over alle møter.
-
-3. Roller
-    * Alle får hver sin administrative rolle. Se prosjektplan for oversikt. Fordeling av arbeidsoppgaver relatert til prosjektet tar vi stilling til fortløpende.
-
-4. Prosjektplan og organisasjonskart
-    * Skriver prosjektplan sammen og laster opp i git. 
-    * Finner inspirasjon til organisasjonskartet på nett, Markus ordner dette til neste gang. 
-
-5. Annet
-    * Git – commentaire conventions (se link i discord), alle setter seg inn i dette.
-
-6. Til neste gang:
-    * Markus ordner organizational chart
-    * Alle setter seg inn i GIT, og kloner repoet.
-
-
--------------
-
 
 # Prosjektplan 
 
@@ -87,5 +62,68 @@ Utover disse rollene har vi valgt å ha en flat struktur uten noen leder, fordi 
 
 
 >>>>>>> 6eadfe5189cf51cd581b34c4ebfaa8a9f5e0221f
+
+
+# Møtereferat 8. mars
+
+1. Finne ut hva vi må gjøre
+* Vi begynner med samme infrastruktur.
+* Følger kompendiet først (bare minimum) og legger til andre ting senere.
+
+Oversikt sammen over hva som må gjøres, de ulike stegene:
+
+ 1) Sette opp infrastrukturen, AD og joine maskiner
+ 2) Sette opp OUer (Sara)
+ 3) Opprette brukere (NB: ikke tilfeldig fordeling i OUer) (Magnus)
+ 4) Opprette grupper (Daniel)
+ 5) Sette opp Group Policies (Markus)
+
+Kan se på hvordan NTNU har gjort det for inspirasjon:
+* Last ned AD-explorer (funker ikke så bra på Mac). 
+
+2. Fordele arbeid
+Fordeler punkt 2-5 mellom oss (se fordeling over):
+
+: Alle leser seg opp på sitt punkt og samler et basic skript fra kompendiet, og ser evt. hva som må endres med tanke på vår bedrift/infrastruktur (og evt. om det er noe vi kan legge til, men dette kan vi også se på senere). 
+
+Husk å kommentere/notere det vi gjør (til rapporten) og henvise til NSMs grunnprinsipper for IKT-sikkerhet.
+
+3. Bli enig om GIT-kommentering
+* ‘docs’ for dokumentet
+* ‘feat’ for feature
+* ‘fix’ da fikser du en ting
+* Eksempel – endre på formatering: ‘docs: update formatting/spellcheck/etc.’
+
+4. Til neste gang/på neste møte (onsdag 9. mars)
+* Alle ser på sin del av oppsettet av infrastrukturen (se over).
+* Finne navn til hotellet
+
+
+
+
+# Møtereferat 2.mars
+
+1. Gå igjennom prosjektet/prosjektbeskrivelsen, bli enig om bedrift
+* Bedrift for prosjekt: Hotell
+
+2. Møtetider
+* Faste møter tirsdager 14.15-16.00, i tillegg til andre møter når det passer for alle. Se prosjektplan for oversikt over alle møter.
+
+3. Roller
+* Alle får hver sin administrative rolle. Se prosjektplan for oversikt. Fordeling av arbeidsoppgaver relatert til prosjektet tar vi stilling til fortløpende.
+
+4. Prosjektplan og organisasjonskart
+* Skriver prosjektplan sammen og laster opp i git. 
+* Finner inspirasjon til organisasjonskartet på nett, Markus ordner dette til neste gang. 
+
+5. Annet
+* Git – commentaire conventions (se link i discord), alle setter seg inn i dette.
+
+6. Til neste gang:
+* Markus ordner organizational chart
+* Alle setter seg inn i GIT, og kloner repoet.
+
+
+-------------
 
 
