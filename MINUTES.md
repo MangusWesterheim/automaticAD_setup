@@ -1,5 +1,4 @@
 
-
 # Prosjektplan 
 
 ### Introduksjon
@@ -61,7 +60,7 @@ Prosjektbeskrivelsen fastsetter noen aktiviteter og oppgaver som må med i gjenn
 Utover disse rollene har vi valgt å ha en flat struktur uten noen leder, fordi vi legger opp til å arbeide mye sammen og sammen bli enig om fordeling av arbeidsoppgaver.  
 
 
->>>>>>> 6eadfe5189cf51cd581b34c4ebfaa8a9f5e0221f
+***
 
 
 # Møtereferat 8. mars
