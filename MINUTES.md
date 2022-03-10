@@ -1,4 +1,3 @@
-
 # Prosjektplan 
 
 ### Introduksjon
@@ -6,8 +5,14 @@ I dette prosjektet skal vi designe og implementere en organisasjonsstruktur for 
 
 ### Prosjektbegrunnelse
 * **Hensikt**
+    *  Lære om hvordan en setter opp et mindre AD-miljø i en fiktiv bedrift.   
 * **Effektmål**
+    * Kompetanse innenfor planlegging, oppsett og utførelse av et Windows AD-miljø. Kunnskaper om skripting og automatisering av ulike oppgaver i Powershell. 
+    * Kompetanse innenfor samhandling med bruk av Git. 
 * **Resultatmål**
+    * Ha skript som setter opp et Active Directory-miljø med gjeldende best-practices og anbefalinger for Grunnprinsipper for IKT-sikkerhet av NSM.
+    * Videopresentasjon som presenterer prosjektet og skriptene 
+    * Sluttrapport som går gjennom utfordringer langs veien og hvordan vi løste dem. 
 
 
 ### Prosjektgjennomføring
