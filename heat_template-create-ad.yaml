@@ -112,7 +112,6 @@ resources:
       user_data_format: RAW
       user_data: |
         #ps1_sysnative
-        #ps1_sysnative
         #
         # Windows 10 doesn't set hostname correctly
         #
