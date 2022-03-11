@@ -2,11 +2,10 @@ heat_template_version: 2013-05-23
 
 description: >
   HOT template to create a new neutron network plus a router to the public
-  network, and for deploying one Windows 10 (hostname cl1) and two Windows
+  network, and for deploying one Windows 10 (hostname cl1 and mgr) and two Windows
   Servers (hostnames dc1 and srv1). 
 
-  Sets up AD automatically after login to Administrator account on DC1. 
-  Assigns DNS AD DNS to clients
+  Sets up AD automatically after login to Administrator account on DC1 and joins clients to AD. 
 parameters:
   key_name:
     type: string
@@ -75,16 +74,31 @@ resources:
         - port: { get_resource: mgr_port }
       user_data_format: RAW
       user_data: |
-        #ps1_sysnative
-        #
-        # Windows 10 doesn't set hostname correctly
-        #
+        #ps1_sysnative  
+        # 
+        # Give Windows correct hostname 
+        # 
         $name = (New-Object System.Net.WebClient).DownloadString("http://169.254.169.254/latest/meta-data/hostname")
         $shortname = $name.split('.',2)[0]
+      
         if ( $env:computername -ne $shortname ) {
           Rename-Computer $shortname
-          exit 1003 # 1003 - reboot and run the plugin again on next boot
-                    # https://cloudbase-init.readthedocs.io/en/latest/tutorial.html#file-execution
+        }
+
+        # 
+        # Wait for LDAP setup before trying to join domain
+        #
+        while (!(Test-NetConnection -ComputerName 192.168.111.2 -Port 389).TcpTestSucceeded) {
+        exit 1003
+        }
+        
+        # 
+        # Join domain
+        # 
+        $password = ConvertTo-SecureString 'P@ssw0rd123!!' -AsPlainText -Force
+        $credential = New-Object System.Management.Automation.PSCredential ('Administrator', $password)
+        Add-Computer -DomainName cesa.corp -Credential $credential  -Restart
+
   mgr_port:
     type: OS::Neutron::Port
     properties:
@@ -111,16 +125,30 @@ resources:
         - port: { get_resource: cl1_port }
       user_data_format: RAW
       user_data: |
-        #ps1_sysnative
+        #ps1_sysnative 
         #
-        # Windows 10 doesn't set hostname correctly
-        #
+        # Give Windows correct hostname 
+        #   
         $name = (New-Object System.Net.WebClient).DownloadString("http://169.254.169.254/latest/meta-data/hostname")
         $shortname = $name.split('.',2)[0]
+      
         if ( $env:computername -ne $shortname ) {
           Rename-Computer $shortname
-          exit 1003 # 1003 - reboot and run the plugin again on next boot
-                    # https://cloudbase-init.readthedocs.io/en/latest/tutorial.html#file-execution
+        }
+        # 
+        # Wait for LDAP setup before trying to join domain
+        #
+        while (!(Test-NetConnection -ComputerName 192.168.111.2 -Port 389).TcpTestSucceeded) {
+          exit 1003
+        }
+        # 
+        # Join domain
+        #
+        $password = ConvertTo-SecureString 'P@ssw0rd123!!' -AsPlainText -Force
+        $credential = New-Object System.Management.Automation.PSCredential ('Administrator', $password)
+        Add-Computer -DomainName cesa.corp -Credential $credential  -Restart
+
+
   cl1_port:
     type: OS::Neutron::Port
     properties:
@@ -148,6 +176,9 @@ resources:
       user_data_format: RAW
       user_data: |
         #ps1_sysnative
+        #
+        # Automatically sets up domain: 
+        #
         Try {
         # Start the logging in the C:\DomainJoin directory
         #
@@ -241,6 +272,22 @@ resources:
       key_name: { get_param: key_name }
       networks:
         - port: { get_resource: srv1_port }
+      user_data_format: RAW
+      user_data: |
+        #ps1_sysnative    
+        # 
+        # Wait for LDAP setup before trying to join domain
+        #
+        while (!(Test-NetConnection -ComputerName 192.168.111.2 -Port 389).TcpTestSucceeded) {
+          exit 1003
+        }
+        #  
+        # Join domain
+        #
+        $password = ConvertTo-SecureString 'P@ssw0rd123!!' -AsPlainText -Force
+        $credential = New-Object System.Management.Automation.PSCredential ('Administrator', $password)
+        Add-Computer -DomainName cesa.corp -Credential $credential  -Restart
+
 
   srv1_port:
     type: OS::Neutron::Port
