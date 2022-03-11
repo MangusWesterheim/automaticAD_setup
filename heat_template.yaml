@@ -97,7 +97,7 @@ resources:
         # 
         $password = ConvertTo-SecureString 'P@ssw0rd123!!' -AsPlainText -Force
         $credential = New-Object System.Management.Automation.PSCredential ('Administrator', $password)
-        Add-Computer -DomainName cesa.corp -Credential $credential  -Restart
+        Add-Computer -DomainName corp.contoso.com -Credential $credential  -Restart
 
   mgr_port:
     type: OS::Neutron::Port
@@ -146,7 +146,7 @@ resources:
         #
         $password = ConvertTo-SecureString 'P@ssw0rd123!!' -AsPlainText -Force
         $credential = New-Object System.Management.Automation.PSCredential ('Administrator', $password)
-        Add-Computer -DomainName cesa.corp -Credential $credential  -Restart
+        Add-Computer -DomainName corp.contoso.com -Credential $credential  -Restart
 
 
   cl1_port:
@@ -206,8 +206,8 @@ resources:
         Try {
         Start-Transcript -Path C:\DomainJoin\stage2.txt
         `$password = "P@ssw0rd123!!"
-        `$FullDomainName = "cesa.corp"
-        `$ShortDomainName = "CESA"
+        `$FullDomainName = "corp.contoso.com"
+        `$ShortDomainName = "CORP"
         `$encrypted = ConvertTo-SecureString `$password -AsPlainText -Force
         Import-Module ADDSDeployment
         Install-ADDSForest ``
@@ -286,7 +286,7 @@ resources:
         #
         $password = ConvertTo-SecureString 'P@ssw0rd123!!' -AsPlainText -Force
         $credential = New-Object System.Management.Automation.PSCredential ('Administrator', $password)
-        Add-Computer -DomainName cesa.corp -Credential $credential  -Restart
+        Add-Computer -DomainName corp.contoso.com -Credential $credential  -Restart
 
 
   srv1_port:
