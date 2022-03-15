@@ -231,6 +231,6 @@ AVANSERT: sette opp et intranett med autentisering
 
 #### 2. Til neste gang/På neste møte
 * Lese seg opp på GP best practices
-* Begynne på skriftene.
+* Begynne på skriptene.
 
 
