@@ -234,3 +234,41 @@ AVANSERT: sette opp et intranett med autentisering
 * Begynne på skriptene.
 
 
+
+# Møtereferat 15. mars
+
+#### 1. Heat template – Daniel forklarer
+Forskjellen på denne og Erik sin: Når den lastes inn i openstack setter den opp DC1 med AD-roller automatisk og joiner de andre maskinene til domenet. 
+* Bruker cloudbase init som kjøres på hver maskin. 
+* Man må bare logg inn med domeneadmin på DC1 en gang. 
+
+
+#### 2. Hva har vi gjort siden sist?
+* Heat template – Ferdig
+* Gruppeskript – Nesten ferdig (mangler delegering av ting, men man kan ha en csv-fil med grupper i og importere de inn). 
+* OU skript – Ikke ferdig: Endre path (DC=corp,DC=contoso,DC=com)
+
+
+#### 3. Rapport
+Begynne å skrive rapport:
+* Dokumentere hva vi gjør: Heat-template, oppsett av GP, OU, grupper, brukere. 
+
+
+#### 4. Hva skal vi gjøre videre?
+* Teste å sette opp DC med AD med templaten. 
+* Husk å sjekke/oppdater issue-board I gitlab (også hvis man trenger flere oppgaver)
+* Ferdig med skriptene til helgen:
+    * Sara gjør ferdig OU-skript (endrer det i forhold til andre skript)
+    * Daniel og Markus lager GP-skript og GPO-skript.
+    * Magnus lager oppretting av bruker-skriptet, med CSV-skript.
+* Lage video i helgen. 
+* Skrive rapport.
+
+
+#### 5. Annet
+Et forslag er å lage en svitsj så man kan velge å kjøre et og et skript, uten å klippe og lime de inn.
+
+Tips: Skript må kjøres som admin. Vi legger til et flag i toppen for at det ikke kan kjøres som admin (se link i discord for forklaring på hvordan dette gjøres). Da slipper vi problemet at ikke hele skript kjøres hvis man kommer til å kjøre det uten å være admin. 
+
+Gruppe-skript (ansvar: Markus) (kanskje avansert): Finnes noe som heter 'delegate control'. Siden vi ikke vil bruke domeneadmin-brukeren på noen av kontoene, kan man gi noen brukere tilgang til å endre passord.
+
