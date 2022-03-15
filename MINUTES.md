@@ -151,7 +151,7 @@ Husk å kommentere/notere det vi gjør (til rapporten) og henvise til NSMs grunn
 
 * En policy for Preferences som brukeren kan endre (ulikt fra Policy som er låst) – preference for baseline.
 
-* App blocker, kun godkjente programmer skal få kjøre
+* App locker, kun godkjente programmer skal få kjøre
 
 * NPS - network policy server
 
