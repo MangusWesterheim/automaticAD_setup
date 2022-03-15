@@ -131,3 +131,106 @@ Husk å kommentere/notere det vi gjør (til rapporten) og henvise til NSMs grunn
 -------------
 
 
+# Møtereferat 9.mars
+
+1. Finne ut hva vi trenger av Group Policies, grupper, brukere og OUer.
+
+* Mest hensiktsmessig å først lage GPer og så OUer basert på grupper og GPer. 
+
+
+### Group policy
+
+* Generell GP som fungerer for alle datamaskiner (brukere), folder i direction, ikke alle har en fast PC på hotellet. Brukermappa lages ikke lokalt, men på en server, så de har tilgang til dokumenter 
+
+* GP for Internet explorer, chrome, edge.
+
+* GP for Office, lage template så det blir ‘applayet’ automatisk (maler for bedriften)
+
+* Baseline policy for klient-sikkerhet.
+
+* En policy for Preferences som brukeren kan endre (ulikt fra Policy som er låst) – preference for baseline.
+
+* App blocker, kun godkjente programmer skal få kjøre
+
+* NPS - network policy server
+
+* Pushe ut lokal admin, hvis lokal bruker skal ha admin rettigheter (for eksempel IT-brukere, som vil ha full tilgang til å gjøre ting på maskinen)
+
+* Desktop settings (bakgrunn, taskbar, hvordan man skal pushe ut snarveier på skrivebordet)
+
+* Servere, policy som låser serveren ned. 
+
+(AVANSERT: 10. Rotserver med sertifikat og ruller ut sertifikat til hver PC …)
+
+=> Prøver å samle de litt: Baseline trenger ikke å være så streng og kan være til alle maskinene. Desktop settings.
+
+
+### Grupper
+
+Vi lager en egen OU for grupper for å få mer oversikt, som i stor grad vil følge OUene. 
+
+Eksempler/ideer: 
+
+
+* **Idefasen - UKE 9**
+    * Forstå hva oppgaven spør om
+    * Diskutere mulige løsninger på oppgaven
+    * Komme til enighet om løsning av oppgaven
+
+* **IT-rettigheter**
+    * Klient-admin, pushes ut med GP. En separat gruppe som gir tilgang til å logge på med full admin rettigheter til domenet. (Samme med servere)
+
+* **Sikkerhetsgruppe for økonomi-avdelingen (og for ulike avdelinger) med shares og lignende. Automatisere shares så de blir automatisk lagt til på PCen.**
+    * Markedsføring
+    * Økonomi
+    * ??
+
+* **Tillate for trådløst nett**
+
+* ** RDP-tilgang**
+
+Vi må lage grupper sånn at ingen har tilgang til ALT. Domene-admin rollen skal deles opp i mindre rettigheter. 
+- Helpdesk som har lov til å endre passord/opprette bruker. 
+
+
+## Brukere
+
+Generere en CSV-fil med navn og passord og legge det inn via et annet script. 
+
+Oppsett av brukere og tildeling av grupper:
+* CSV-fil som importeres inn. Vi setter hvilken avdeling de skal tilhøre, istedenfor å generere det tilfeldig i et script. 
+
+Hva skal (kan) være i CSV-fila:
+Navn, tittel, telefon, ansatt iD, mail, beskrivelse, OU, grupper, enablet, passord.
+
+Kan ta utgangspunkt i det scriptet som Erik har lagd til å generere random brukere osv. 
+
+
+### OUer
+
+* Dele computers og users
+* Dele inn i subOUer
+
+Overordnet inndeling (Grafisk utkast til OU-design ligger i sharepoint), tre hoved-OUer:
+
+1. Computers 
+    – Klienter (kiosk og ansatte)
+    – Servere
+2. Users
+    – Flere sub-OUer.
+3 Groups
+    – IT
+    – Flere sub-OUer?
+
+
+### Avanserte tillegg
+
+AVANSERT: rulle ut oppdateringer (NPS går litt over det)
+AVANSERT: sette opp et intranett med autentisering
+
+
+2. Til neste gang/På neste møte
+* Lese seg opp på GP best practices
+* Begynne på skriftene.
+
+
