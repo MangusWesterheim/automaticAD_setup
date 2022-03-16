@@ -1,9 +1,9 @@
-﻿Name;Path
+Name;Path
 AllUsers;OU=AllUsers
 IT;OU=IT,OU=AllUsers
 Admin;OU=Admin,OU=AllUsers
 Employee;OU=Employee,OU=AllUsers
-Management;OU=Management,OU=AllUsers
+Management;OU=Management,OU=Admin,OU=AllUsers
 Inactive;OU=Inactive,OU=AllUsers
 Finance;OU=Finance,OU=Admin,OU=AllUsers
 Logistic;OU=Logistic,OU=Admin,OU=AllUsers
