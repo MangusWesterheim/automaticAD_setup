@@ -62,7 +62,7 @@ $LastName = @("Hansen","Johansen","Olsen","Larsen","Andersen","Pedersen",
 
 # 5 i Management, 5 i Finance, 5 i logistic, 5 i Marketing og 82 i Employee(It ou tildeles direkte til brukere)
 $OrgUnits = @("ou=Management,ou=Admin,ou=AllUsers","ou=Management,ou=Admin,ou=AllUsers",
-  "ou=Management,ou=Admin,ou=AllUsers","ou=Management,ou=Admin,ou=AllUsers",
+  	"ou=Management,ou=Admin,ou=AllUsers","ou=Management,ou=Admin,ou=AllUsers",
 	"ou=Management,ou=Admin,ou=AllUsers","ou=Finance,ou=Admin,ou=AllUsers",
 	"ou=Finance,ou=Admin,ou=AllUsers","ou=Finance,ou=Admin,ou=AllUsers",
 	"ou=Finance,ou=Admin,ou=AllUsers","ou=Finance,ou=Admin,ou=AllUsers",
