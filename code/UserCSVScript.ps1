@@ -15,6 +15,7 @@
 #     -DisplayName           $user.Displayname `
 #     -Department            $user.Department `
 #     -Title 		     $user.Title `
+#     -Description           $user.Description
 #     -Path                  $user.path `
 #     -AccountPassword (ConvertTo-SecureString $user.Password -AsPlainText -Force)
 # }
@@ -98,12 +99,39 @@ $OrgUnits = @("ou=Management,ou=Admin,ou=AllUsers","ou=Management,ou=Admin,ou=Al
 	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
 	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
 	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-  "ou=Employee,ou=AllUsers")
+  	"ou=Employee,ou=AllUsers")
 
-Write-Output "UserName;GivenName;SurName;UserPrincipalName;DisplayName;Password;Department;Stilling;Path" > contesousers.csv
+Write-Output "UserName;GivenName;SurName;UserPrincipalName;DisplayName;Password;Department;Stilling;Description;Path" > contesousers.csv
 
 
-# Hardkoder 3 brukere inn i it department sånn at det er lettere å opprette stillinger til de
+# Hardkoder 8 brukere inn i it department sånn at det er lettere å opprette stillinger til de og fordele de slik at de har de tilgangene de trenger
+# Administratorene trenger 3 kontoer klient admin, server admin og vanlig.
+# Lærlingen trenger ikke server admin bruker men trenger klient admin.
+
+# Administrator Lars sine brukere
+$UserName          = "Cliadm_lars"
+$GivenName         = "Lars"
+$SurName           = "Pedersen"
+$UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
+$DisplayName       = 'kliadm' + $GivenName + ' ' + $SurName
+$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Department        = 'IT'
+$Title		   = 'Administrator'
+$Description       = "Client Admin"
+$Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contesousers.csv
+
+$UserName          = "srvadm_lars"
+$GivenName         = "Lars"
+$SurName           = "Pedersen"
+$UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
+$DisplayName       = 'srvadm_'+$GivenName + ' ' + $SurName
+$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Department        = 'IT'
+$Title		   = 'Administrator'
+$Description       = "Server Admin"
+$Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contesousers.csv
 
 $UserName          = "lars"
 $GivenName         = "Lars"
@@ -114,7 +142,32 @@ $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ
 $Department        = 'IT'
 $Title		   = 'Administrator'
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Path" >> contesousers.csv
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contesousers.csv
+
+# Administrator Gina sine brukere
+$UserName          = "cliadm_gina"
+$GivenName         = "Gina"
+$SurName           = "Minervini"
+$UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
+$DisplayName       = 'kliadm' + $GivenName + ' ' + $SurName
+$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Department        = 'IT'
+$Title		   = 'Administrator'
+$Description       = "Client Admin"
+$Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contesousers.csv
+
+$UserName          = "srvadm_gina"
+$GivenName         = "Gina"
+$SurName           = "Minervini"
+$UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
+$DisplayName       = 'srvadm' + $GivenName + ' ' + $SurName
+$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Department        = 'IT'
+$Title		   = 'Administrator'
+$Description       = "Server Admin"
+$Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contesousers.csv
 
 $UserName          = "gina"
 $GivenName         = "Gina"
@@ -125,7 +178,20 @@ $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ
 $Department        = 'IT'
 $Title		   = 'Administrator'
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Path" >> contesousers.csv
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contesousers.csv
+
+# Lærlingen Peter sine kontoer
+$UserName          = "Cliadm_peter"
+$GivenName         = "Peter"
+$SurName           = "Gran"
+$UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
+$DisplayName       = 'kliadm' + $GivenName + ' ' + $SurName
+$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Department        = 'IT'
+$Title		   = 'Apprentice'
+$Description       = "Client Admin"
+$Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contesousers.csv
 
 $UserName          = "peter"
 $GivenName         = "Peter"
@@ -136,7 +202,7 @@ $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ
 $Department        = 'IT'
 $Title		   = 'Apprentice'
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Path" >> contesousers.csv
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contesousers.csv
 
 # Mixer sammen fornavn, etternavn og path sånn at vi får tilfeldige brukere hver gang
 #
@@ -154,5 +220,5 @@ foreach ($i in 0..96) {
   $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
   $Department        = ($OrgUnits[$ouidx[$i]] -split '[=,]')[1]
   $Path              = $OrgUnits[$ouidx[$i]] + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-  Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department; ;$Path" >> contesousers.csv
+  Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department; ; ;$Path" >> contesousers.csv
 }
