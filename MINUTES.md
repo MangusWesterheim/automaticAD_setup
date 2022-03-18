@@ -1,13 +1,13 @@
 # Prosjektplan 
 
 ### Introduksjon
-I dette prosjektet skal vi designe og implementere en organisasjonsstruktur for et fiksjonelt hotell (navn på hotell). Organisasjonsstrukturen skal settes opp i Active Directory på en domenekontroller ved bruk av PowerShell-skript. Dette vil også innebære å legge til tre andre maskiner i domenet, samt lage "organizational units”, brukere, grupper og “group policies”. Hvordan organisasjonen settes opp i Active Directory vil demonstreres i en kort film. 
+I dette prosjektet skal vi designe og implementere en organisasjonsstruktur for det fiksjonelle hotellet Contoso. Organisasjonsstrukturen skal settes opp i Active Directory på en domenekontroller ved bruk av PowerShell-skript. Dette vil også innebære å legge til tre andre maskiner i domenet, samt lage "organizational units”, brukere, grupper og “group policies”. Hvordan organisasjonen settes opp i Active Directory vil demonstreres i en kort film. 
 
 ### Prosjektbegrunnelse
 * **Hensikt**
     *  Lære om hvordan en setter opp et mindre AD-miljø i en fiktiv bedrift.   
 * **Effektmål**
-    * Kompetanse innenfor planlegging, oppsett og utførelse av et Windows AD-miljø. Kunnskaper om skripting og automatisering av ulike oppgaver i Powershell. 
+    * Kompetanse innenfor planlegging, oppsett og utførelse av et Windows AD-miljø. Kunnskaper om skripting og automatisering av ulike oppgaver i PowerShell. 
     * Kompetanse innenfor samhandling med bruk av Git. 
 * **Resultatmål**
     * Ha skript som setter opp et Active Directory-miljø med gjeldende best-practices og anbefalinger for Grunnprinsipper for IKT-sikkerhet av NSM.
@@ -22,7 +22,7 @@ Prosjektbeskrivelsen fastsetter noen aktiviteter og oppgaver som må med i gjenn
     * Lage organisasjonskart 
     * Powershell-skript som automatiserer AD-setup 
     * Videopresentasjon  
-    * Lage sluttrapport 
+    * Sluttrapport 
 
 ### Prosjektfaser:
 
@@ -37,12 +37,12 @@ Prosjektbeskrivelsen fastsetter noen aktiviteter og oppgaver som må med i gjenn
     * Lage oversikt over arbeidsoppgaver 
     * Fordele arbeidsoppgaver
 
-* **Designe organisasjonsstrukturen: PowerShell scripts - UKE 10/11**
+* **Designe organisasjonsstrukturen: PowerShell-skripts - UKE 10/11**
     * Utarbeide organisasjonsstrukturen, OUer, aksesskontroll, group policies. 
 
 * **Ferdigstilling av prosjektet - UKE 11**
     * Planlegge og lage videopresentasjon
-    * Sluttrapport 
+    * Skrive ferdig sluttrapport 
 
 ### Timeplan 
 
@@ -62,7 +62,7 @@ Prosjektbeskrivelsen fastsetter noen aktiviteter og oppgaver som må med i gjenn
 * Kontaktperson
     * Markus
 
-Utover disse rollene har vi valgt å ha en flat struktur uten noen leder, fordi vi legger opp til å arbeide mye sammen og sammen bli enig om fordeling av arbeidsoppgaver.  
+Utover disse rollene har vi valgt å ha en flat struktur uten noen leder, fordi vi legger opp til å arbeide mye sammen og komme til felles enighet om fordeling av arbeidsoppgaver.  
 
 
 ***
