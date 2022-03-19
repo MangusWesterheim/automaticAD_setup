@@ -1,4 +1,4 @@
-# Skript for oppretting av OUer.
+﻿# Skript for oppretting av OUer.
 Import-Module activedirectory
 
 Set-Location C:\Users\Administrator\Documents
@@ -8,7 +8,6 @@ Invoke-WebRequest -URI https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_
 
 #Sjekker om filen finnes:
 if ((Get-Item ou.csv).Exists) {
-    
     # # Inspirert av:
     # https://activedirectorypro.com/create-bulk-organizational-units-ou-in-active-directory-with-powershell/
     # Leser og oppretter OUer fra csv-fil (header: name;path;description):
@@ -19,7 +18,6 @@ if ((Get-Item ou.csv).Exists) {
         -Path $ou.path `
         -Description $ou.description `
     }
-
 } else {
     Write-Output "Filen finnes ikke"}
 
