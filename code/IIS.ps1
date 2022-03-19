@@ -1,4 +1,4 @@
-# Skript for installering av IIS-rolle og nedlasting av webside.
+﻿# Skript for installering av IIS-rolle og nedlasting av webside.
 # Noen deler hentet fra tidligere studenter:
 # https://github.com/Magnussen98/DCSG1005_Infra_Oblig2_ActiveDirectory/blob/master/Scripts/IIS/Install-IIS.ps1
 
