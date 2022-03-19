@@ -1,8 +1,8 @@
 ﻿# Kode brukt: https://gitlab.com/erikhje/heat-mono/-/raw/master/scripts/CreateUserCSV.ps1
 #
 #
-# Skript som oppretter en csv fil med alle brukerene vi skal ha i ad
-# # Overskrifter: Username;GivenName;SurName;UserPrincipalName;DisplayName;Password;Department;Path
+# Skript som oppretter en csv fil med alle brukerene vi skal ha i ad, vi skal ha 105 brukere fordelt på 100 personer
+# Overskrifter: Username;GivenName;SurName;UserPrincipalName;DisplayName;Password;Department;Path
 # foreach ($User in $ADUsers) {
 #     New-ADUser `
 #     -SamAccountName        $User.Username `
@@ -14,13 +14,14 @@
 #     -ChangePasswordAtLogon $False `
 #     -DisplayName           $user.Displayname `
 #     -Department            $user.Department `
-#     -Title 		     $user.Title `
-#     -Description           $user.Description
+#     -Title 		             $user.Title `
+#     -Description           $user.Description `
 #     -Path                  $user.path `
 #     -AccountPassword (ConvertTo-SecureString $user.Password -AsPlainText -Force)
 # }
 # Test sånn at vi ikke ender opp med to like csv filer
 #
+
 if ((Get-ChildItem -ErrorAction SilentlyContinue contosousers.csv).Exists)
   {"You already have the file contosousers.csv!"; return;}
 
@@ -61,47 +62,47 @@ $LastName = @("Hansen","Johansen","Olsen","Larsen","Andersen","Pedersen",
               "Abrahamsen","Madsen"
              )
 
-# 5 i Management, 5 i Finance, 5 i logistic, 5 i Marketing og 82 i Employee(It ou tildeles direkte til brukere)
+# 5 i Management, 5 i Finance, 5 i logistics, 5 i Marketing, 2 i HR og 75 i Employee(It path tildeles direkte til brukere det er relevant til)
 $OrgUnits = @("ou=Management,ou=Admin,ou=AllUsers","ou=Management,ou=Admin,ou=AllUsers",
-  	"ou=Management,ou=Admin,ou=AllUsers","ou=Management,ou=Admin,ou=AllUsers",
-	"ou=Management,ou=Admin,ou=AllUsers","ou=Finance,ou=Admin,ou=AllUsers",
-	"ou=Finance,ou=Admin,ou=AllUsers","ou=Finance,ou=Admin,ou=AllUsers",
-	"ou=Finance,ou=Admin,ou=AllUsers","ou=Finance,ou=Admin,ou=AllUsers",
-	"ou=Logistic,ou=Admin,ou=AllUsers","ou=Logistic,ou=Admin,ou=AllUsers",
-	"ou=Logistic,ou=Admin,ou=AllUsers","ou=Logistic,ou=Admin,ou=AllUsers",
-	"ou=Logistic,ou=Admin,ou=AllUsers","ou=Marketing,ou=Admin,ou=AllUsers",
-	"ou=Marketing,ou=Admin,ou=AllUsers","ou=Marketing,ou=Admin,ou=AllUsers",
-	"ou=Marketing,ou=Admin,ou=AllUsers","ou=Marketing,ou=Admin,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers"
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers""ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-	"ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
-  	"ou=Employee,ou=AllUsers")
+    "ou=Management,ou=Admin,ou=AllUsers","ou=Management,ou=Admin,ou=AllUsers",
+    "ou=Management,ou=Admin,ou=AllUsers","ou=Finance,ou=Admin,ou=AllUsers",
+    "ou=Finance,ou=Admin,ou=AllUsers","ou=Finance,ou=Admin,ou=AllUsers",
+    "ou=Finance,ou=Admin,ou=AllUsers","ou=Finance,ou=Admin,ou=AllUsers",
+    "ou=Logistics,ou=Admin,ou=AllUsers","ou=Logistics,ou=Admin,ou=AllUsers",
+    "ou=Logistics,ou=Admin,ou=AllUsers","ou=Logistics,ou=Admin,ou=AllUsers",
+    "ou=Logistics,ou=Admin,ou=AllUsers","ou=Marketing,ou=Admin,ou=AllUsers",
+    "ou=Marketing,ou=Admin,ou=AllUsers","ou=Marketing,ou=Admin,ou=AllUsers",
+    "ou=Marketing,ou=Admin,ou=AllUsers","ou=Marketing,ou=Admin,ou=AllUsers",
+    "ou=HR,ou=Admin,ou=AllUsers","ou=HR,ou=Admin,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+    "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers",
+      "ou=Employee,ou=AllUsers","ou=Employee,ou=AllUsers")
 
-Write-Output "UserName;GivenName;SurName;UserPrincipalName;DisplayName;Password;Department;Stilling;Description;Path" > contesousers.csv
+Write-Output "UserName;GivenName;SurName;UserPrincipalName;DisplayName;Password;Department;Stilling;Description;Path" > contosousers.csv
 
 
 # Hardkoder 8 brukere inn i it department sånn at det er lettere å opprette stillinger til de og fordele de slik at de har de tilgangene de trenger
@@ -109,17 +110,18 @@ Write-Output "UserName;GivenName;SurName;UserPrincipalName;DisplayName;Password;
 # Lærlingen trenger ikke server admin bruker men trenger klient admin.
 
 # Administrator Lars sine brukere
-$UserName          = "Cliadm_lars"
+$UserName          = "cliadm_lars"
 $GivenName         = "Lars"
 $SurName           = "Pedersen"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
-$DisplayName       = 'kliadm' + $GivenName + ' ' + $SurName
+$DisplayName       = 'kliadm_' + $GivenName + ' ' + $SurName
 $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Description       = "Client Admin"
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contesousers.csv
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contosousers.csv
 
 $UserName          = "srvadm_lars"
 $GivenName         = "Lars"
@@ -127,11 +129,12 @@ $SurName           = "Pedersen"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = 'srvadm_'+$GivenName + ' ' + $SurName
 $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Description       = "Server Admin"
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contesousers.csv
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contosousers.csv
 
 $UserName          = "lars"
 $GivenName         = "Lars"
@@ -139,35 +142,38 @@ $SurName           = "Pedersen"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = $GivenName + ' ' + $SurName
 $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contesousers.csv
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contosousers.csv
 
 # Administrator Gina sine brukere
 $UserName          = "cliadm_gina"
 $GivenName         = "Gina"
 $SurName           = "Minervini"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
-$DisplayName       = 'kliadm' + $GivenName + ' ' + $SurName
+$DisplayName       = 'kliadm_' + $GivenName + ' ' + $SurName
 $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Description       = "Client Admin"
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contesousers.csv
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contosousers.csv
 
 $UserName          = "srvadm_gina"
 $GivenName         = "Gina"
 $SurName           = "Minervini"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
-$DisplayName       = 'srvadm' + $GivenName + ' ' + $SurName
+$DisplayName       = 'srvadm_' + $GivenName + ' ' + $SurName
 $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Description       = "Server Admin"
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contesousers.csv
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contosousers.csv
 
 $UserName          = "gina"
 $GivenName         = "Gina"
@@ -175,23 +181,25 @@ $SurName           = "Minervini"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = $GivenName + ' ' + $SurName
 $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contesousers.csv
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contosousers.csv
 
 # Lærlingen Peter sine kontoer
-$UserName          = "Cliadm_peter"
+$UserName          = "cliadm_peter"
 $GivenName         = "Peter"
 $SurName           = "Gran"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
-$DisplayName       = 'kliadm' + $GivenName + ' ' + $SurName
+$DisplayName       = 'cliadm_' + $GivenName + ' ' + $SurName
 $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
 $Department        = 'IT'
-$Title		   = 'Apprentice'
+$Title		         = 'Apprentice'
 $Description       = "Client Admin"
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contesousers.csv
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contosousers.csv
 
 $UserName          = "peter"
 $GivenName         = "Peter"
@@ -199,10 +207,11 @@ $SurName           = "Gran"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = $GivenName + ' ' + $SurName
 $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
 $Department        = 'IT'
-$Title		   = 'Apprentice'
+$Title		         = 'Apprentice'
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contesousers.csv
+Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contosousers.csv
 
 # Mixer sammen fornavn, etternavn og path sånn at vi får tilfeldige brukere hver gang
 #
@@ -218,7 +227,8 @@ foreach ($i in 0..96) {
   $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
   $DisplayName       = $GivenName + ' ' + $SurName
   $Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
+  $Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
   $Department        = ($OrgUnits[$ouidx[$i]] -split '[=,]')[1]
   $Path              = $OrgUnits[$ouidx[$i]] + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
-  Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department; ; ;$Path" >> contesousers.csv
+  Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department; ; ;$Path" >> contosousers.csv
 }
