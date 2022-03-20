@@ -10,7 +10,7 @@ redircmp "OU=Clients,DC=corp,DC=contoso,DC=com"
 
 # Flytter CL1 og MGR fra container til Clients-OU (fra "Compendia"):
 Get-ADComputer "CL1" |
-  Move-ADObject -TargetPath "OU=Employees,OU=Clients,DC=corp,DC=contoso,DC=com"
+  Move-ADObject -TargetPath "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
 Get-ADComputer "MGR" |
   Move-ADObject -TargetPath "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
 
