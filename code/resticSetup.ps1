@@ -1,8 +1,11 @@
-﻿<#
-    .SYNOPSIS
-    Restic-oppsett som tar sikkerhetskopi av alle brukerprofiler og shares hver natt kl 02.00 til Swift. Snapshot som er eldre enn 14 dager blir slettet.
-    Prune-skript kjøres hver søndag kl 19:00 og rydder opp i repositoryet.
-#>
+﻿#Requires -RunAsAdministrator
+############################################################################################################
+#                                                                                                          #
+#   Restic-oppsett som tar sikkerhetskopi av alle brukerprofiler og shares hver natt kl 02.00 til Swift.   #
+#   Snapshot som er eldre enn 14 dager blir slettet.                                                       #
+#   Prune-skript kjøres hver søndag kl 19:00 og rydder opp i repositoryet.                                 #
+#                                                                                                          #
+############################################################################################################
 
 $scriptBlock = {
 
