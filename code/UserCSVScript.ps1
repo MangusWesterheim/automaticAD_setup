@@ -45,7 +45,7 @@ $LastName = @("Hansen", "Johansen", "Olsen", "Larsen", "Andersen", "Pedersen",
   "Abrahamsen", "Madsen"
 )
 
-# 5 i Management, 5 i Finance, 5 i logistics, 5 i Marketing, 2 i HR og 75 i Employee(It path tildeles direkte til brukere det er relevant til)
+# 5 i Management, 5 i Finance, 5 i logistics, 5 i Marketing, 5 i HR og 72 i Employee(It path tildeles direkte til brukere det er relevant til)
 $OrgUnits = @("ou=Management,ou=Admin,ou=AllUsers", "ou=Management,ou=Admin,ou=AllUsers",
   "ou=Management,ou=Admin,ou=AllUsers", "ou=Management,ou=Admin,ou=AllUsers",
   "ou=Management,ou=Admin,ou=AllUsers", "ou=Finance,ou=Admin,ou=AllUsers",
@@ -57,7 +57,7 @@ $OrgUnits = @("ou=Management,ou=Admin,ou=AllUsers", "ou=Management,ou=Admin,ou=A
   "ou=Marketing,ou=Admin,ou=AllUsers", "ou=Marketing,ou=Admin,ou=AllUsers",
   "ou=Marketing,ou=Admin,ou=AllUsers", "ou=Marketing,ou=Admin,ou=AllUsers",
   "ou=HR,ou=Admin,ou=AllUsers", "ou=HR,ou=Admin,ou=AllUsers",
-  "ou=Employee,ou=AllUsers", "ou=Employee,ou=AllUsers", "ou=Employee,ou=AllUsers",
+  "ou=HR,ou=Admin,ou=AllUsers", "ou=HR,ou=Admin,ou=AllUsers", "ou=HR,ou=Admin,ou=AllUsers",
   "ou=Employee,ou=AllUsers", "ou=Employee,ou=AllUsers", "ou=Employee,ou=AllUsers",
   "ou=Employee,ou=AllUsers", "ou=Employee,ou=AllUsers", "ou=Employee,ou=AllUsers",
   "ou=Employee,ou=AllUsers", "ou=Employee,ou=AllUsers", "ou=Employee,ou=AllUsers",
