@@ -178,7 +178,7 @@ resources:
         #ps1_sysnative
         #
         # Automatically sets up domain: 
-        #
+        # Based on https://blogs.oracle.com/cloud-infrastructure/post/creating-a-windows-active-directory-domain-controller-in-oracle-cloud-infrastructure
         Try {
         # Start the logging in the C:\DomainJoin directory
         #
