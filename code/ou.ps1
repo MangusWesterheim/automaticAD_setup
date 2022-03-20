@@ -1,16 +1,22 @@
-﻿# Skript for oppretting av OUer.
+﻿#############################################################################################################
+# Dette skriptet importerer OUer fra en CSV-fil og oppretter de deretter til i AD.                          #
+# CSV-filen må inneholde parameterne name, path, og description.                                            #
+# Inspirert av skript fra:                                                                                  #
+# https://activedirectorypro.com/create-bulk-organizational-units-ou-in-active-directory-with-powershell/   #
+#                                                                                                           #
+#############################################################################################################
+
+#Requires -RunAsAdministrator
+
 Import-Module activedirectory
 
-Set-Location C:\Users\Administrator\Documents
+# Henter CSV-fil:
+Invoke-WebRequest -URI https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/CSV/ou.csv -OutFile ou.csv
 
-# Henter csv-fil:
-Invoke-WebRequest -URI https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/CSV/ou.csv -OutFile C:\Users\Administrator\Documents\ou.csv
-
-#Sjekker om filen finnes:
+Sjekker om filen finnes:
 if ((Get-Item ou.csv).Exists) {
-    # # Inspirert av:
-    # https://activedirectorypro.com/create-bulk-organizational-units-ou-in-active-directory-with-powershell/
-    # Leser og oppretter OUer fra csv-fil (header: name;path;description):
+
+    # Leser og oppretter OUer fra CSV-fil (header: name;path;description):
     $ADOU = Import-csv C:\Users\Administrator\Documents\ou.csv -Delimiter ";"
     foreach ($ou in $ADOU) {
         New-ADOrganizationalUnit `
@@ -18,6 +24,7 @@ if ((Get-Item ou.csv).Exists) {
         -Path $ou.path `
         -Description $ou.description `
     }
-} else {
-    Write-Output "Filen finnes ikke"}
+    Write-Output "OUer ble opprettet."
 
+} else {
+    Write-Output "Filen finnes ikke."}
