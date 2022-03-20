@@ -1,8 +1,14 @@
+﻿###################################################################################
+# Dette skriptet omdirigerer nye maskiner fra Computers-container til Clients-OU, #
+# I tillegg flyttes over CL1 og MGR fra samme container til Clients-OU,           #
+# og SRV1 til Servers-OU                                                          #
+#                                                                                 #
+###################################################################################
+
 # Omdirigerer computers containers
 redircmp "OU=Clients,DC=corp,DC=contoso,DC=com"
 
-# Hentet fra https://gitlab.com/erikhje/dcsg1005/-/blob/master/compendia.md
-# Flytter CL1 og MGR fra container til Clients-OU:
+# Flytter CL1 og MGR fra container til Clients-OU (fra "Compendia"):
 Get-ADComputer "CL1" |
   Move-ADObject -TargetPath "OU=Clients,DC=corp,DC=contoso,DC=com"
 Get-ADComputer "MGR" |

@@ -1,6 +1,7 @@
-﻿# Skript for installering av IIS-rolle og nedlasting av webside.
-# Noen deler hentet fra tidligere studenter:
-# https://github.com/Magnussen98/DCSG1005_Infra_Oblig2_ActiveDirectory/blob/master/Scripts/IIS/Install-IIS.ps1
+﻿###################################################################################
+# Dette skriptet installerer IIS-rollen og laster ned webside, på SRV1            #
+#                                                                                 #
+###################################################################################
 
 $scriptBlock = {
     Invoke-WebRequest -Uri https://raw.githubusercontent.com/dh-ctrl/draker.no/main/index.html -OutFile C:\inetpub\wwwroot\index.html
@@ -8,7 +9,6 @@ $scriptBlock = {
 
 }
 
-# Legger server-navn i variabel fordi ComputerName ikke skal hardcodes:
 $server = "SRV1"
 
 # Utfører skript på srv1:
