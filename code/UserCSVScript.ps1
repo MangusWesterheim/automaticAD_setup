@@ -98,10 +98,9 @@ $GivenName         = "Lars"
 $SurName           = "Pedersen"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = 'kliadm_' + $GivenName + ' ' + $SurName
-$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
-$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
+$Password          = ('*]pfi77{9T{KuB$N/no3RM8m')
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Description       = "Client Admin"
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
 Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contosousers.csv
@@ -111,10 +110,9 @@ $GivenName         = "Lars"
 $SurName           = "Pedersen"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = 'srvadm_'+$GivenName + ' ' + $SurName
-$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
-$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
+$Password          = ('*]pfi77{9T{KuB$N/no3RM8m')
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Description       = "Server Admin"
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
 Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contosousers.csv
@@ -124,10 +122,9 @@ $GivenName         = "Lars"
 $SurName           = "Pedersen"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = $GivenName + ' ' + $SurName
-$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
-$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
+$Password          = ('*]pfi77{9T{KuB$N/no3RM8m')
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
 Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contosousers.csv
 
@@ -137,10 +134,9 @@ $GivenName         = "Gina"
 $SurName           = "Minervini"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = 'kliadm_' + $GivenName + ' ' + $SurName
-$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
-$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
+$Password          = ('=f8RI[wU#NimPWnoE+c,|Fo%')
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Description       = "Client Admin"
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
 Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contosousers.csv
@@ -150,10 +146,9 @@ $GivenName         = "Gina"
 $SurName           = "Minervini"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = 'srvadm_' + $GivenName + ' ' + $SurName
-$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
-$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
+$Password          = ('=f8RI[wU#NimPWnoE+c,|Fo%')
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Description       = "Server Admin"
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
 Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contosousers.csv
@@ -163,10 +158,9 @@ $GivenName         = "Gina"
 $SurName           = "Minervini"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = $GivenName + ' ' + $SurName
-$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
-$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
+$Password          = ('=f8RI[wU#NimPWnoE+c,|Fo%')
 $Department        = 'IT'
-$Title		   = 'Administrator'
+$Title		         = 'Administrator'
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
 Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contosousers.csv
 
@@ -176,10 +170,9 @@ $GivenName         = "Peter"
 $SurName           = "Gran"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = 'cliadm_' + $GivenName + ' ' + $SurName
-$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
-$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
+$Password          = ('RQ]mj`_]Q{1$6e>5&4:}(I/b')
 $Department        = 'IT'
-$Title		   = 'Apprentice'
+$Title		         = 'Apprentice'
 $Description       = "Client Admin"
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
 Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title;$Description;$Path" >> contosousers.csv
@@ -189,10 +182,9 @@ $GivenName         = "Peter"
 $SurName           = "Gran"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
 $DisplayName       = $GivenName + ' ' + $SurName
-$Password          = -join ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 16)
-$Password          += -join ('!"#$%&()*+,-./:<=>?@[\]_{|}'.ToCharArray() | Get-Random -Count 8)
+$Password          = ('RQ]mj`_]Q{1$6e>5&4:}(I/b')
 $Department        = 'IT'
-$Title		   = 'Apprentice'
+$Title		         = 'Apprentice'
 $Path              = "ou=IT,ou=AllUsers" + ',' + "dc=CORP,dc=CONTOSO,dc=COM"
 Write-Output "$UserName;$GivenName;$SurName;$UserPrincipalName;$DisplayName;$Password;$Department;$Title; ;$Path" >> contosousers.csv
 
