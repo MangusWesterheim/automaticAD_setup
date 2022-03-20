@@ -54,16 +54,16 @@ import-gpo -BackupGpoName CONTOSO-USER_DriveMapping -TargetName CONTOSO-USER_Dri
 
 
 #Link GPO to OUs
-Get-GPO -Name "CONTOSO-CLIENT_AppLocker" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
-Get-GPO -Name "CONTOSO-CLIENT_AuditPolicy" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
-Get-GPO -Name "CONTOSO-CLIENT_ClientSettings" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
-Get-GPO -Name "CONTOSO-CLIENT_IE_EDGE_CHROME" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
-Get-GPO -Name "CONTOSO-CLIENT_LAPS" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
-Get-GPO -Name "CONTOSO-CLIENT_LocalAdministrator" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
-Get-GPO -Name "CONTOSO-CLIENT_OfficeSettings" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
-Get-GPO -Name "CONTOSO-CLIENT_RemoteDesktop" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
-Get-GPO -Name "CONTOSO-CLIENT_Security" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
-Get-GPO -Name "CONTOSO-CLIENT_Firewall" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
+Get-GPO -Name "CONTOSO-CLIENT_AppLocker" |  New-GPLink -Target "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
+Get-GPO -Name "CONTOSO-CLIENT_AuditPolicy" |  New-GPLink -Target "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
+Get-GPO -Name "CONTOSO-CLIENT_ClientSettings" |  New-GPLink -Target "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
+Get-GPO -Name "CONTOSO-CLIENT_IE_EDGE_CHROME" |  New-GPLink -Target "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
+Get-GPO -Name "CONTOSO-CLIENT_LAPS" |  New-GPLink -Target "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
+Get-GPO -Name "CONTOSO-CLIENT_LocalAdministrator" |  New-GPLink -Target "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
+Get-GPO -Name "CONTOSO-CLIENT_OfficeSettings" |  New-GPLink -Target "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
+Get-GPO -Name "CONTOSO-CLIENT_RemoteDesktop" |  New-GPLink -Target "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
+Get-GPO -Name "CONTOSO-CLIENT_Security" |  New-GPLink -Target "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
+Get-GPO -Name "CONTOSO-CLIENT_Firewall" |  New-GPLink -Target "OU=Employee,OU=Clients,DC=corp,DC=contoso,DC=com"
 
 Get-GPO -Name "CONTOSO-SERVER_AuditPolicy" |  New-GPLink -Target "OU=Servers,DC=corp,DC=contoso,DC=com"
 Get-GPO -Name "CONTOSO-SERVER_Firewall" |  New-GPLink -Target "OU=Servers,DC=corp,DC=contoso,DC=com"
