@@ -97,7 +97,7 @@ $UserName = "cliadm_lars"
 $GivenName = "Lars"
 $SurName = "Pedersen"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
-$DisplayName = 'kliadm_' + $GivenName + ' ' + $SurName
+$DisplayName = 'cliadm_' + $GivenName + ' ' + $SurName
 $Password = ('*]pfi77{9T{KuB$N/no3RM8m')
 $Department = 'IT'
 $Title = 'Administrator'
@@ -133,7 +133,7 @@ $UserName = "cliadm_gina"
 $GivenName = "Gina"
 $SurName = "Minervini"
 $UserPrincipalName = $UserName + '@' + 'corp.contoso.com'
-$DisplayName = 'kliadm_' + $GivenName + ' ' + $SurName
+$DisplayName = 'cliadm_' + $GivenName + ' ' + $SurName
 $Password = ('=f8RI[wU#NimPWnoE+c,|Fo%')
 $Department = 'IT'
 $Title = 'Administrator'
