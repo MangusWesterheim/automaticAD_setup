@@ -272,3 +272,48 @@ Tips: Skript må kjøres som admin. Vi legger til et flag i toppen for at det ik
 
 Gruppe-skript (ansvar: Markus) (kanskje avansert): Finnes noe som heter 'delegate control'. Siden vi ikke vil bruke domeneadmin-brukeren på noen av kontoene, kan man gi noen brukere tilgang til å endre passord.
 
+
+
+# Møtereferat 16. mars
+
+#### 1. Oppklaringer
+Hvor mange brukere i hver bruker-OU?
+
+Grupper: 
+* IT-ansatte (2) har klientadmin-tillatelse, lærling trenger kun å kunne endre passord.
+* Sikkerhetsgrupper for hver av avdelingene. 
+* Shares for de ulike administrative OUene (hver sin). 
+* Navnekonvensjoner for grupper inspirert av NTNU (dl_=domainlocal/G_=gloabl)
+
+
+#### 2. Hva må gjøres videre?
+Alle jobber videre med skriptene for å få mest mulig ferdig. 
+
+
+#### 3. Rapport
+Har begynt på rapporten. Alle må skrive inn utfordringer de har møtt på og hvordan de har løst det, og beslutninger som er tatt, evt. om det samsvarer med NSM sine grunnprinsipper. 
+
+
+
+# Møtereferat 19. mars
+
+#### 1. Hva må gjøres i dag?
+Vi kom ikke så langt som vi hadde håpet på i går, så vi fortsetter der vi slapp og fokuserer på ferdigstilling av skriptene slik at vi kan få testet å kjøre alle scriptene sammen i morgen. 
+
+#### 2. Videopresentasjon
+Daniel tar med mikrofon til videopresentasjon, som vi gjør i morgen. 
+Trenger manus til voice over. 
+
+
+
+# Møtereferat 20. mars
+
+#### 1. Hva må gjøres i dag?
+Teste å kjøre alle skriptene på nyoppsatt stack (flere ganger). 
+Lage skript som kjører alle de andre skriptene. 
+Skrive ferdig rapporten.
+Ta opp og redigere videopresentasjon. 
+
+
+
+
