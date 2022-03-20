@@ -1,0 +1,18 @@
+name;path;description
+AllUsers;DC=corp,DC=contoso,DC=com;Containing OUs with all users
+IT;OU=AllUsers,DC=corp,DC=contoso,DC=com;IT staff
+Admin;OU=AllUsers,DC=corp,DC=contoso,DC=com;Containing OUs for administration departments
+Employee;OU=AllUsers,DC=corp,DC=contoso,DC=com;Regular employees
+Inactive;OU=AllUsers,DC=corp,DC=contoso,DC=com;Inactive users
+Management;OU=Admin,OU=AllUsers,DC=corp,DC=contoso,DC=com;Management
+HR;OU=Admin,OU=AllUsers,DC=corp,DC=contoso,DC=com;HR department
+Finance;OU=Admin,OU=AllUsers,DC=corp,DC=contoso,DC=com;Finance department
+Logistics;OU=Admin,OU=AllUsers,DC=corp,DC=contoso,DC=com;Logistics department
+Marketing;OU=Admin,OU=AllUsers,DC=corp,DC=contoso,DC=com;Marketing department
+Clients;DC=corp,DC=contoso,DC=com;Containing OUs, user laptops and workstations
+Servers;DC=corp,DC=contoso,DC=com;Servers
+Employee;OU=Clients,DC=corp,DC=contoso,DC=com;Employee computers
+Kiosk;OU=Clients,DC=corp,DC=contoso,DC=com;Front desk and cash register
+Groups;DC=corp,DC=contoso,DC=com;Containing OUs and active users
+IT;OU=Groups,DC=corp,DC=contoso,DC=com;Access groups
+File;OU=Groups,DC=corp,DC=contoso,DC=com;File shares
