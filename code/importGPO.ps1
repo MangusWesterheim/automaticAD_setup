@@ -1,28 +1,28 @@
 ﻿#Requires -RunAsAdministrator
 
 
-#Kopierer PolicyDefinitions to Central Store 
+#Kopierer PolicyDefinitions to Central Store
 New-Item -Path C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions -ItemType Directory -Force
 Copy-Item -Recurse -Path  C:\Windows\PolicyDefinitions\*  -Destination C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions -Force
 
-##Importer ADMX-templates til Central Store 
+##Importer ADMX-templates til Central Store
 New-Item -Path C:\Temp\ADMX -ItemType Directory -Force
 
 Invoke-WebRequest -URI https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/GoogleChromePolicyTemplates.zip -OutFile C:\Temp\ADMX\Chrome.zip
-Expand-Archive -LiteralPath 'C:\Temp\ADMX\Chrome.zip' -DestinationPath 'C:\Temp\ADMX\' -Force 
+Expand-Archive -LiteralPath 'C:\Temp\ADMX\Chrome.zip' -DestinationPath 'C:\Temp\ADMX\' -Force
 
 Invoke-WebRequest -URI https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/MicrosoftEdgePolicyTemplates.zip -OutFile C:\Temp\ADMX\Edge.zip
-Expand-Archive -LiteralPath 'C:\Temp\ADMX\Edge.zip' -DestinationPath 'C:\Temp\ADMX\' -Force 
+Expand-Archive -LiteralPath 'C:\Temp\ADMX\Edge.zip' -DestinationPath 'C:\Temp\ADMX\' -Force
 
 Invoke-WebRequest -URI https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/MicrosoftOfficePolicyTemplates.zip -OutFile C:\Temp\ADMX\Office.zip
-Expand-Archive -LiteralPath 'C:\Temp\ADMX\Office.zip' -DestinationPath 'C:\Temp\ADMX\'-Force  
+Expand-Archive -LiteralPath 'C:\Temp\ADMX\Office.zip' -DestinationPath 'C:\Temp\ADMX\'-Force
 
 Invoke-WebRequest -URI https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/GPO.zip -OutFile C:\Temp\GPO.zip
-Expand-Archive -LiteralPath 'C:\Temp\GPO.zip' -DestinationPath 'C:\Temp\GPO\'-Force  
+Expand-Archive -LiteralPath 'C:\Temp\GPO.zip' -DestinationPath 'C:\Temp\GPO\'-Force
 
-Copy-Item -Recurse -Path 'C:\Temp\ADMX\GoogleChromePolicyTemplates\*' -Destination 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions' -Force 
-Copy-Item -Recurse -Path 'C:\Temp\ADMX\MicrosoftEdgePolicyTemplates\*' -Destination 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions' -Force 
-Copy-Item -Recurse -Path 'C:\Temp\ADMX\MicrosoftOfficePolicyTemplates\*' -Destination 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions' -Force 
+Copy-Item -Recurse -Path 'C:\Temp\ADMX\GoogleChromePolicyTemplates\*' -Destination 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions' -Force
+Copy-Item -Recurse -Path 'C:\Temp\ADMX\MicrosoftEdgePolicyTemplates\*' -Destination 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions' -Force
+Copy-Item -Recurse -Path 'C:\Temp\ADMX\MicrosoftOfficePolicyTemplates\*' -Destination 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions' -Force
 
 
 
@@ -53,9 +53,9 @@ import-gpo -BackupGpoName CONTOSO-USER_DriveMapping -TargetName CONTOSO-USER_Dri
 
 
 
-#Link GPO to OUs 
-Get-GPO -Name "CONTOSO-CLIENT_AppLocker" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com" 
-Get-GPO -Name "CONTOSO-CLIENT_AuditPolicy" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com" 
+#Link GPO to OUs
+Get-GPO -Name "CONTOSO-CLIENT_AppLocker" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
+Get-GPO -Name "CONTOSO-CLIENT_AuditPolicy" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
 Get-GPO -Name "CONTOSO-CLIENT_ClientSettings" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
 Get-GPO -Name "CONTOSO-CLIENT_IE_EDGE_CHROME" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
 Get-GPO -Name "CONTOSO-CLIENT_LAPS" |  New-GPLink -Target "OU=Clients,DC=corp,DC=contoso,DC=com"
@@ -84,9 +84,3 @@ Get-GPO -Name "CONTOSO-USER_Desktop_StartMenu_Taskbar_Notifications" |  New-GPLi
 Get-GPO -Name "CONTOSO-USER_FolderRedirection" |  New-GPLink -Target "OU=AllUsers,DC=corp,DC=contoso,DC=com"
 Get-GPO -Name "CONTOSO-USER_Preferences" |  New-GPLink -Target "OU=AllUsers,DC=corp,DC=contoso,DC=com"
 Get-GPO -Name "CONTOSO-USER_DriveMapping" |  New-GPLink -Target "OU=AllUsers,DC=corp,DC=contoso,DC=com"
-
-
-
- 
-
-
