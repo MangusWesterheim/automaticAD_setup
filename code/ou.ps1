@@ -1,4 +1,4 @@
-#############################################################################################################
+﻿#############################################################################################################
 # Dette skriptet importerer OUer fra en CSV-fil og oppretter de deretter til i AD.                          #
 # CSV-filen må inneholde parameterne name, path, og description.                                            #
 # Inspirert av skript fra:                                                                                  #
