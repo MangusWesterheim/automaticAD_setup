@@ -1,4 +1,4 @@
-﻿######################################################################################
+######################################################################################
 # Dette skriptet importerer grupper fra en CSV-fil og legger det deretter til i AD.  #
 # CSV-filen må inneholde parameterne Name, Path, Scope, Category og Description.     #
 # Det legger så til folk i riktige grupper utifra avdeling og stilling.              #
@@ -136,4 +136,4 @@ Get-ADUser -SearchBase ‘OU=AllUsers,DC=corp,DC=contoso,DC=com’ -Filter * |
         Add-ADGroupMember -Identity ‘file_contoso’ -Members $_
         Add-ADGroupMember -Identity ‘G_active_users’ -Members $_
         Add-ADGroupMember -Identity ‘dl_it_client_RemoteDesktopUsers’ -Members $_
-    } 
+    }
