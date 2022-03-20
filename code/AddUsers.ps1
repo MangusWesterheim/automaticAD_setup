@@ -1,4 +1,6 @@
-﻿######################################################################################
+﻿# Kode brukt: https://gitlab.com/erikhje/dcsg1005/-/blob/master/compendia.md (UserScript)
+
+######################################################################################
 # Dette skriptet invoker skriptet som oppretter csv filen for brukere og henter ut   #
 #  innholdet og legger til brukere i ad basert på csv-filen                          #
 #                                                                                    #
