@@ -27,6 +27,7 @@ foreach($script in $scriptsList)
     if ($script) {
         $script
         $i++
+        Write-Output "Kjører $script."
     } else {
         Write-Output "Fant ikke $script"
         break
