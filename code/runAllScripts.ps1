@@ -17,34 +17,24 @@ $text = @"
 
 $text
 
-Set-Location 'C:\Users\Administrator\Downloads\Scripts\'
+#Set-Location 'C:\Users\Administrator\Downloads\Scripts\'
 
-$scriptsList =
-@(
-    .\ou.ps1                      # Oppretter OUer
-    .\redirect_comp.ps1           # Omdirigerer/flytter maskiner fra container til OU
-    .\AddUsers.ps1                # Oppretter brukere (kjører userCSVScripts.ps1)
-    .\createGroups.ps1            # Oppretter grupper.
-    .\shares.ps1                  # Oppretter og deler shares-mapper
-    .\LAPS.ps1                    # Installerer LAPS
-    .\importGPO.ps1               # Importerer GPOer
-    .\delegateResetPassword.ps1   # Delegerer rettigheter for tilbakestilling av passord
-    .\resticSetup.ps1             # Installerer restic og setter opp backup
-    .\IIS.ps1                     # Installerer IIS og setter opp webside
-)
 
-$i = 0
+$1  = "ou.ps1"                      # Oppretter OUer
+$2  = "redirect_comp.ps1"           # Omdirigerer/flytter maskiner fra container til OU
+$3  = "AddUsers.ps1"                # Oppretter brukere (kjører userCSVScripts.ps1)
+$4  = "createGroups.ps1"           # Oppretter grupper.
+$5  = "shares.ps1"                  # Oppretter og deler shares-mapper
+$6  = "LAPS.ps1"                    # Installerer LAPS
+$7  = "importGPO.ps1"               # Importerer GPOer
+$8  = "delegateResetPassword.ps1"   # Delegerer rettigheter for tilbakestilling av passord
+$9  = "resticSetup.ps1"             # Installerer restic og setter opp backup
+$10 = "IIS.ps1"                     # Installerer IIS og setter opp webside
 
-# Sjekker at den finner alle skriptene:
-foreach($script in $scriptsList)
-{
-    if ($script) {
-        $i++
-    } else {
-        break
-    }
-}
-
+if ((Test-Path -Path $1) -and (Test-Path -Path $2) -and (Test-Path -Path $3) -and `
+    (Test-Path -Path $4) -and (Test-Path -Path $5) -and (Test-Path -Path $6) -and `
+    (Test-Path -Path $7) -and (Test-Path -Path $8) -and (Test-Path -Path $9) -and `
+    (Test-Path -Path $10)) {
 Write-Output "******************************************************************************************"
 Write-Output "*                                      Oppretter OUer                                    *"
 Write-Output "******************************************************************************************"
@@ -94,3 +84,6 @@ Write-Output "******************************************************************
 Write-Output "*                          Installerer IIS og setter opp webside                         *"
 Write-Output "******************************************************************************************"
 .\IIS.ps1
+} else {
+    Write-Output "Fant ikke skript."
+}
