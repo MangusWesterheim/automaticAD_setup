@@ -34,6 +34,7 @@ $scriptBlock = {
     New-SmbShare -Name "Links" -Path "C:\UserProfiles\Links" -FullAccess "Everyone"
     New-SmbShare -Name "Music" -Path "C:\UserProfiles\Music" -FullAccess "Everyone"
     New-SmbShare -Name "Pictures" -Path "C:\UserProfiles\Pictures" -FullAccess "Everyone"
+    New-SmbShare -Name "Searches" -Path "C:\UserProfiles\Searches" -FullAccess "Everyone"
     New-SmbShare -Name "StartMenu" -Path "C:\UserProfiles\StartMenu" -FullAccess "Everyone"
     New-SmbShare -Name "Videos" -Path "C:\UserProfiles\Videos" -FullAccess "Everyone"
 
