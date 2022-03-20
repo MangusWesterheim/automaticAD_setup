@@ -1,5 +1,9 @@
 ﻿#Requires -RunAsAdministrator
 
+######################################################################################
+# Skript som Oppretter shares mappene og sharer de med de som skal ha tilgang til de #
+#                                                                                    #
+######################################################################################
 
 # Skript som Oppretter shares mappene og sharer de med de som skal ha tilgang til de
 
