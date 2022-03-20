@@ -1,3 +1,8 @@
+######################################################################################
+# Skript som tildeler sikkerhetsgrupper til brukere slik at de kan tilbakestille     #
+# passord                                                                            #
+######################################################################################
+
 #Requires -RunAsAdministrator
 
 # https://www.shellandco.net/delegate-the-reset-password-permission/
