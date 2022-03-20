@@ -19,7 +19,7 @@ while (!(Test-Path "contosousers.csv")) { Start-Sleep -Seconds 1 }
 
 $ADUsers = Import-Csv contosousers.csv -Delimiter ";"
 
-# Ignorerer psscriptanalyzer regler slik at skriptet går gjennom pipeline 
+# Ignorerer psscriptanalyzer regler slik at skriptet går gjennom pipeline
 function Get-SecurePassword {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingConvertToSecureStringWithPlainText", "", Scope = "Function")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword", "", Scope = "Function")]
