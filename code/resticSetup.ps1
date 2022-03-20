@@ -38,7 +38,7 @@ Remove-Item Env:\RESTIC_PASSWORD
 Remove-Item Env:\OS_APPLICATION_CREDENTIAL_SECRET
 
 '@
-# Prune-skript file innhold
+# Prune-skript innhold
 $createPruneScript = @'
 
 $env:RESTIC_PASSWORD=’xUGH3So*>w@$ZWnP’
@@ -144,7 +144,7 @@ $createPruneScript > C:\Scripts\backupPrune.ps1
 schtasks /CREATE  /ru "SYSTEM" /tn "Restic Backups" /tr "powershell.exe -file C:\Scripts\backupScript.ps1" /sc daily /st 02:00 /F
 schtasks /CREATE  /ru "SYSTEM" /tn "Restic Prune" /tr "powershell.exe -file C:\Scripts\backupPrune.ps1" /sc weekly /d sun /st 19:00 /F
 
-#Sett filtilganger
+# Sett filtilganger
 $FolderACL  = Get-Acl $path
 $FolderACL.SetAccessRuleProtection($true,$true)
 Set-Acl $path -AclObject $FolderACL
