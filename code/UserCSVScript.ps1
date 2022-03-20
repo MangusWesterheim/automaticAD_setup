@@ -1,26 +1,9 @@
 ﻿# Kode brukt: https://gitlab.com/erikhje/heat-mono/-/raw/master/scripts/CreateUserCSV.ps1
-#
-#
+
+#######################################################################################
 # Skript som oppretter en csv fil med alle brukerene vi skal ha i ad, vi skal ha 105 brukere fordelt på 100 personer
 # Overskrifter: Username;GivenName;SurName;UserPrincipalName;DisplayName;Password;Department;Path
-# foreach ($User in $ADUsers) {
-#     New-ADUser `
-#     -SamAccountName        $User.Username `
-#     -UserPrincipalName     $User.UserPrincipalName `
-#     -Name                  $User.DisplayName `
-#     -GivenName             $User.GivenName `
-#     -Surname               $User.SurName `
-#     -Enabled               $True `
-#     -ChangePasswordAtLogon $False `
-#     -DisplayName           $user.Displayname `
-#     -Department            $user.Department `
-#     -Title 		     $user.Title `
-#     -Description           $user.Description `
-#     -Path                  $user.path `
-#     -AccountPassword (ConvertTo-SecureString $user.Password -AsPlainText -Force)
-# }
-# Test sånn at vi ikke ender opp med to like csv filer
-#
+######################################################################################
 
 if ((Get-ChildItem -ErrorAction SilentlyContinue contosousers.csv).Exists)
   {"You already have the file contosousers.csv!"; return;}
