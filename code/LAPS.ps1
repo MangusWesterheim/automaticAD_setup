@@ -40,7 +40,7 @@ if (Test-Path -Path "\\SRV1\Software")  {
         Set-AdmPwdReadPasswordPermission -OrgUnit "OU=Servers,DC=corp,DC=contoso,DC=com" -AllowedPrincipals "dl_it_server_laps_read"
         Set-AdmPwdResetPasswordPermission -OrgUnit "OU=Servers,DC=corp,DC=contoso,DC=com" -AllowedPrincipals "dl_it_server_laps_reset"
 
-        Copy-Item -Path -Recurse C:\Windows\PolicyDefinitions\* -Destination C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions -Force
+        Copy-Item -Recurse -Path C:\Windows\PolicyDefinitions\* -Destination C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions -Force
     } else {
         Write-Output "Ingen endringer utført. Du er ikke med i Schema Admins gruppen. Vennligst sjekk tilganger!"
     }
