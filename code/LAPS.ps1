@@ -33,12 +33,14 @@ if (Test-Path -Path "\\SRV1\Software")  {
         ## Oppdaterer Schema og konfigurer LAPS-rettigheter
         Import-Module AdmPwd.PS
         Update-AdmPwdADSchema
+        Set-AdmPwdComputerSelfPermission -OrgUnit "OU=Clients,DC=corp,DC=contoso,DC=com"
+        Set-AdmPwdComputerSelfPermission -OrgUnit "OU=Servers,DC=corp,DC=contoso,DC=com"
         Set-AdmPwdReadPasswordPermission -OrgUnit "OU=Clients,DC=corp,DC=contoso,DC=com" -AllowedPrincipals "dl_it_client_laps_read"
         Set-AdmPwdResetPasswordPermission -OrgUnit "OU=Clients,DC=corp,DC=contoso,DC=com" -AllowedPrincipals "dl_it_client_laps_reset"
         Set-AdmPwdReadPasswordPermission -OrgUnit "OU=Servers,DC=corp,DC=contoso,DC=com" -AllowedPrincipals "dl_it_server_laps_read"
         Set-AdmPwdResetPasswordPermission -OrgUnit "OU=Servers,DC=corp,DC=contoso,DC=com" -AllowedPrincipals "dl_it_server_laps_reset"
 
-        Copy-Item -Recurse -Path C:\Windows\PolicyDefinitions\* -Destination C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions -Force
+        Copy-Item -Path -Recurse C:\Windows\PolicyDefinitions\* -Destination C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions -Force
     } else {
         Write-Output "Ingen endringer utført. Du er ikke med i Schema Admins gruppen. Vennligst sjekk tilganger!"
     }
@@ -46,6 +48,8 @@ if (Test-Path -Path "\\SRV1\Software")  {
 else {
     Write-Output "Ingen endringer utført. Nettverksbane ble ikke funnet!"
 }
+
+
 
 
 
