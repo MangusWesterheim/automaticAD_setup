@@ -1,9 +1,9 @@
 ﻿# Kode brukt: https://gitlab.com/erikhje/heat-mono/-/raw/master/scripts/CreateUserCSV.ps1
 
-#######################################################################################
-# Skript som oppretter en csv fil med alle brukerene vi skal ha i ad, vi skal ha 105 brukere fordelt på 100 personer
-# Overskrifter: Username;GivenName;SurName;UserPrincipalName;DisplayName;Password;Department;Path
-######################################################################################
+#######################################################################################################################
+# Skript som oppretter en csv fil med alle brukerene vi skal ha i ad, vi skal ha 105 brukere fordelt på 100 personer  #
+# Overskrifter: Username;GivenName;SurName;UserPrincipalName;DisplayName;Password;Department;Path                     #
+#######################################################################################################################
 
 if ((Get-ChildItem -ErrorAction SilentlyContinue contosousers.csv).Exists)
 { "You already have the file contosousers.csv!"; return; }
@@ -88,8 +88,7 @@ $OrgUnits = @("ou=Management,ou=Admin,ou=AllUsers", "ou=Management,ou=Admin,ou=A
 Write-Output "UserName;GivenName;SurName;UserPrincipalName;DisplayName;Password;Department;Stilling;Description;Path" > contosousers.csv
 
 
-# Hardkoder 8 brukere inn i it department sånn at det er lettere å opprette stillinger til de og fordele de slik at de har de tilgangene de trenger
-# Administratorene trenger 3 kontoer klient admin, server admin og vanlig.
+# Hardkoder 8 brukere inn i it department sånn at de blir like hver gang.
 # Lærlingen trenger ikke server admin bruker men trenger klient admin.
 
 # Administrator Lars sine brukere
