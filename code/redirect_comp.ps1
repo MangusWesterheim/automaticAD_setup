@@ -1,4 +1,6 @@
-﻿###################################################################################
+﻿Requires -RunAsAdministrator
+
+###################################################################################
 # Dette skriptet omdirigerer nye maskiner fra Computers-container til Clients-OU, #
 # I tillegg flyttes over CL1 og MGR fra samme container til Clients-OU,           #
 # og SRV1 til Servers-OU                                                          #

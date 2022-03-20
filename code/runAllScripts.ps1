@@ -1,4 +1,6 @@
-﻿######################################################################################
+﻿Requires -RunAsAdministrator
+
+######################################################################################
 # Dette skriptet kjører alle skriptene som setter opp AD-strukturen.                 #
 # Skriptene kjøres i riktig rekkefølge og stopper om et skript ikke blir funnet.     #
 # Alle skriptene må ligge i en mappe "Scripts" med path som anvist i Set-Location.   #
