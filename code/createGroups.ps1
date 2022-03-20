@@ -1,4 +1,4 @@
-######################################################################################
+﻿######################################################################################
 # Dette skriptet importerer grupper fra en CSV-fil og legger det deretter til i AD.  #
 # CSV-filen må inneholde parameterne Name, Path, Scope, Category og Description.     #
 # Det legger så til folk i riktige grupper utifra avdeling og stilling.              #
