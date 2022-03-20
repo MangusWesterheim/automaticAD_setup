@@ -15,7 +15,7 @@ $scriptsList =
     .\LAPS.ps1                    # Installerer LAPS
     .\importGPO.ps1               # Importerer GPOer
     .\delegateResetPassword.ps1   # Delegerer rettigheter for tilbakestilling av passord
-    r.\esticSetup.ps1             # Installerer restic og setter opp backup
+    .\resticSetup.ps1             # Installerer restic og setter opp backup
     .\IIS.ps1                     # Installerer IIS og setter opp webside
 )
 
