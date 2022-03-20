@@ -4,9 +4,8 @@
 ###################################################################################
 
 $scriptBlock = {
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/dh-ctrl/draker.no/main/index.html -OutFile C:\inetpub\wwwroot\index.html
     Install-WindowsFeature -Name Web-Server -IncludeManagementTools
-
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/dh-ctrl/draker.no/main/index.html -OutFile C:\inetpub\wwwroot\index.html
 }
 
 $server = "SRV1"

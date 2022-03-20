@@ -36,22 +36,22 @@ else {
 
 # Legger til brukere i grupper baset på avdeling og stilling:
 $ADGroup = 'dl_it_client_localadm'
-Get-ADUser -Filter 'Department -eq "IT"' |
+Get-ADUser -Filter 'Department -eq "IT" -And Description -eq "Client Admin"' |
     Where-Object {!($_.memberof -like $ADGroup)} |
     Add-ADPrincipalGroupMembership -MemberOf $ADGroup
 
 $ADGroup = 'dl_it_resetPassword'
-Get-ADUser -Filter 'Department -eq "IT"' |
+Get-ADUser -Filter 'Department -eq "IT" -And Description -eq "Client Admin"' |
     Where-Object {!($_.memberof -like $ADGroup)} |
     Add-ADPrincipalGroupMembership -MemberOf $ADGroup
 
 $ADGroup = 'dl_it_client_laps_read'
-Get-ADUser -Filter 'Department -eq "IT"' |
+Get-ADUser -Filter 'Department -eq "IT" -And Description -eq "Client Admin"'  |
     Where-Object {!($_.memberof -like $ADGroup)} |
     Add-ADPrincipalGroupMembership -MemberOf $ADGroup
 
 $ADGroup = 'dl_it_client_laps_reset'
-Get-ADUser -Filter 'Department -eq "IT" -And Description -eq "Server Admin"' |
+Get-ADUser -Filter 'Department -eq "IT" -And Description -eq "Client Admin"' |
     Where-Object {!($_.memberof -like $ADGroup)} |
     Add-ADPrincipalGroupMembership -MemberOf $ADGroup
 
@@ -125,6 +125,7 @@ Get-ADUser -Filter 'Department -eq "Marketing"' |
     Where-Object {!($_.memberof -like $ADGroup)} |
     Add-ADPrincipalGroupMembership -MemberOf $ADGroup
 
+# Legger til brukere i grupper:
 Add-ADGroupMember -Identity Administrators -Members G_it_AD-Admin
 Add-ADGroupMember -Identity file_it_softwareDistribution -Members Administrator
 

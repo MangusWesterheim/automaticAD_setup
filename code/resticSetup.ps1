@@ -4,6 +4,8 @@
     Prune-skript kjøres hver søndag kl 19:00 og rydder opp i repositoryet.
 #>
 
+$scriptBlock = {
+
 $source = 'https://github.com/restic/restic/releases/download/v0.12.1/restic_0.12.1_windows_amd64.zip'
 New-item -Path C:\Temp -ItemType Directory -Force
 $destination = 'C:\Temp\Restic.zip'
@@ -12,7 +14,7 @@ Invoke-WebRequest -Uri $source -OutFile $destination
 New-item -Path $path -ItemType Directory -Force
 Expand-Archive -LiteralPath $destination -destinationPath $path -Force
 
-# Backup-skript innhold
+#Backup-skript
 $createBackupScript = @'
 $env:RESTIC_PASSWORD=’xUGH3So*>w@$ZWnP’
 $env:OS_AUTH_TYPE=’v3applicationcredential’
@@ -30,15 +32,15 @@ Write-Output "------------------------------------" | Tee-Object C:\Scripts\rest
 Write-Output "------------------------------------" | Tee-Object C:\Scripts\restic.log -Append
 
 #Backups Restic Repo
-.\restic_0.12.1_windows_amd64.exe -r swift:ResticBackup:/ backup C:\Shares --exclude-file=$excludefile --use-fs-snapshot | Tee-Object C:\Scripts\restic.log -Append
-.\restic_0.12.1_windows_amd64.exe -r swift:ResticBackup:/ backup C:\UserProfiles --exclude-file=$excludefile --use-fs-snapshot | Tee-Object C:\Scripts\restic.log -Append
-.\restic_0.12.1_windows_amd64.exe -r swift:ResticBackup:/ forget --keep-last 14 | Tee-Object C:\Scripts\restic.log -Append
+C:\Scripts\restic_0.12.1_windows_amd64.exe -r swift:ResticBackup:/ backup C:\Shares --exclude-file=$excludefile --use-fs-snapshot | Tee-Object C:\Scripts\restic.log -Append
+C:\Scripts\restic_0.12.1_windows_amd64.exe -r swift:ResticBackup:/ backup C:\UserProfiles --exclude-file=$excludefile --use-fs-snapshot | Tee-Object C:\Scripts\restic.log -Append
+C:\Scripts\restic_0.12.1_windows_amd64.exe -r swift:ResticBackup:/ forget --keep-last 14 | Tee-Object C:\Scripts\restic.log -Append
 
 Remove-Item Env:\RESTIC_PASSWORD
 Remove-Item Env:\OS_APPLICATION_CREDENTIAL_SECRET
 
 '@
-# Prune-skript innhold
+# Prune-skript
 $createPruneScript = @'
 
 $env:RESTIC_PASSWORD=’xUGH3So*>w@$ZWnP’
@@ -55,7 +57,7 @@ Write-Output "------------------------------------" | Tee-Object C:\Scripts\rest
 (Get-Date).DateTime  | Tee-Object C:\Scripts\restic-prune.log -Append
 Write-Output "------------------------------------" | Tee-Object C:\Scripts\restic-prune.log -Append
 #Prunes Restic Repo
-.\restic_0.12.1_windows_amd64.exe -r swift:ResticBackup:/ prune | Tee-Object restic-prune.log -Append
+C:\Scripts\restic_0.12.1_windows_amd64.exe -r swift:ResticBackup:/ prune | Tee-Object C:\Scripts\restic-prune.log -Append
 
 Remove-Item Env:\RESTIC_PASSWORD
 Remove-Item Env:\OS_APPLICATION_CREDENTIAL_SECRET
@@ -151,3 +153,10 @@ Set-Acl $path -AclObject $FolderACL
 
 icacls $path /grant CORP\file_it_scripts:F
 icacls $path /remove BUILTIN\Users /t /c
+
+}
+
+
+# Utfører skript på srv1:
+$server = "SRV1"
+Invoke-Command -ComputerName $server -ScriptBlock $scriptBlock
