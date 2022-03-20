@@ -24,9 +24,7 @@ Copy-Item -Recurse -Path 'C:\Temp\ADMX\GoogleChromePolicyTemplates\*' -Destinati
 Copy-Item -Recurse -Path 'C:\Temp\ADMX\MicrosoftEdgePolicyTemplates\*' -Destination 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions' -Force
 Copy-Item -Recurse -Path 'C:\Temp\ADMX\MicrosoftOfficePolicyTemplates\*' -Destination 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions' -Force
 
-
-
-##Importer sikkerhetskopierte GPOer og Migration Table 
+##Importer sikkerhetskopierte GPOer og Migration Table
 import-gpo -BackupGpoName CONTOSO-CLIENT_AppLocker -TargetName CONTOSO-CLIENT_AppLocker -path C:\Temp\GPO\GPO\GPOs -MigrationTable C:\Temp\GPO\GPO\migtable.migtable -CreateIfNeeded
 import-gpo -BackupGpoName CONTOSO-CLIENT_AuditPolicy -TargetName CONTOSO-CLIENT_AuditPolicy -path C:\Temp\GPO\GPO\GPOs -MigrationTable C:\Temp\GPO\GPO\migtable.migtable -CreateIfNeeded
 import-gpo -BackupGpoName CONTOSO-CLIENT_ClientSettings -TargetName CONTOSO-CLIENT_ClientSettings -path C:\Temp\GPO\GPO\GPOs -MigrationTable C:\Temp\GPO\GPO\migtable.migtable -CreateIfNeeded
