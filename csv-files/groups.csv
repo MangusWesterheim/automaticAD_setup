@@ -1,0 +1,21 @@
+name;path;scope;category;description
+dl_it_client_localadm;OU=IT,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Give users Local Administrator on clients
+dl_it_server_localadm;OU=IT,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Give users Local Administrator on servers
+dl_it_server_RemoteDesktopUsers;OU=IT,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Allow Remote Desktop to servers
+dl_it_resetPassword;OU=IT,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Password reset privileges 
+dl_it_client_RemoteDesktopUsers;OU=IT,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Allow Remote Desktop to clients
+dl_it_client_laps_read;OU=IT,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Allow users to read client passwords
+dl_it_client_laps_reset;OU=IT,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Allow users to reset client passwords
+dl_it_server_laps_read;OU=IT,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Allow users to read server passwords
+dl_it_server_laps_reset;OU=IT,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Allow users to reset server passwords
+file_it_softwareDistribution;OU=File,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Access to Software Distribution share
+file_adm_finance;OU=File,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Access to Finance share
+file_adm_hr;OU=File,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Access to HR share
+file_adm_logistics;OU=File,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Access to Logistics share
+file_adm_management;OU=File,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Access to Management share
+file_adm_marketing;OU=File,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Access to Marketing share
+file_it_scripts;OU=File,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Access to IT Scripts 
+file_it;OU=File,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Access to IT share
+file_contoso;OU=File,OU=Groups,DC=corp,DC=contoso,DC=com;DomainLocal;Security;Access to Contoso share
+G_active_users;OU=Groups,DC=corp,DC=contoso,DC=com;Global;Security;All active users 
+G_it_AD-Admin;OU=IT,OU=Groups,DC=corp,DC=contoso,DC=com;Global;Security;Give users AD Admin privileges
