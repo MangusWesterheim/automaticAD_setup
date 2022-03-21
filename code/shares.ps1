@@ -5,9 +5,6 @@
 #                                                                                    #
 ######################################################################################
 
-# Skript som Oppretter shares mappene og sharer de med de som skal ha tilgang til de
-
-
 $scriptBlock = {
     # Henter en csv fil med mappestrukturen og lager strukturen
     Set-Location C:\
