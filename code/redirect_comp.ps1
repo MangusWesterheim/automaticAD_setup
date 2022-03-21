@@ -1,4 +1,4 @@
-﻿Requires -RunAsAdministrator
+﻿#Requires -RunAsAdministrator
 
 ###################################################################################
 # Dette skriptet omdirigerer nye maskiner fra Computers-container til Clients-OU, #

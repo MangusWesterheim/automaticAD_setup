@@ -1,4 +1,4 @@
-﻿Requires -RunAsAdministrator
+﻿#Requires -RunAsAdministrator
 
 #############################################################################################################
 # Dette skriptet importerer OUer fra en CSV-fil og oppretter de deretter til i AD.                          #

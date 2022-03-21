@@ -1,4 +1,4 @@
-﻿Requires -RunAsAdministrator
+﻿#Requires -RunAsAdministrator
 
 ###################################################################################
 # Dette skriptet installerer IIS-rollen og laster ned webside, på SRV1            #

@@ -1,4 +1,4 @@
-﻿Requires -RunAsAdministrator
+﻿#Requires -RunAsAdministrator
 
 ######################################################################################
 # Dette skriptet kjører alle skriptene som setter opp AD-strukturen.                 #
