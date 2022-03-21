@@ -11,24 +11,27 @@
 New-Item -Path C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions -ItemType Directory -Force
 Copy-Item -Recurse -Path  C:\Windows\PolicyDefinitions\*  -Destination C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions -Force
 
-##Importer ADMX-templates til Central Store
-New-Item -Path C:\Temp\ADMX -ItemType Directory -Force
+##Importerer ADMX-templates til Central Store
+$URLs = @('https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/GoogleChromePolicyTemplates.zip','https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/MicrosoftEdgePolicyTemplates.zip','https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/MicrosoftOfficePolicyTemplates.zip')
+$DownloadFolder = 'C:\Temp\ADMX'
+$Unzip = 'C:\Temp\ADMX\Unzip'
+$sysvol = 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions'
 
-Invoke-WebRequest -URI https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/GoogleChromePolicyTemplates.zip -OutFile C:\Temp\ADMX\Chrome.zip
-Expand-Archive -LiteralPath 'C:\Temp\ADMX\Chrome.zip' -DestinationPath 'C:\Temp\ADMX\' -Force
+New-Item -Path $DownloadFolder -ItemType Directory -Force
+New-Item -Path $Unzip  -ItemType Directory -Force
 
-Invoke-WebRequest -URI https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/MicrosoftEdgePolicyTemplates.zip -OutFile C:\Temp\ADMX\Edge.zip
-Expand-Archive -LiteralPath 'C:\Temp\ADMX\Edge.zip' -DestinationPath 'C:\Temp\ADMX\' -Force
+ $URLs | foreach-object {
+    $fileName = Split-Path $_ -Leaf
+    $DestinationPath = Join-Path $DownloadFolder -ChildPath $fileName
+    Invoke-WebRequest -Uri $_ -OutFile $DestinationPath
+    Expand-Archive -LiteralPath $DownloadFolder\$fileName -DestinationPath $Unzip -Force
+    Copy-Item -Recurse -Path $Unzip\*\* -Destination $sysvol -Force
+ }
 
-Invoke-WebRequest -URI https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/MicrosoftOfficePolicyTemplates.zip -OutFile C:\Temp\ADMX\Office.zip
-Expand-Archive -LiteralPath 'C:\Temp\ADMX\Office.zip' -DestinationPath 'C:\Temp\ADMX\'-Force
 
 Invoke-WebRequest -URI https://raw.githubusercontent.com/dh-ctrl/DCSG1005_Infra_ActiveDirectory/main/GPO.zip -OutFile C:\Temp\GPO.zip
 Expand-Archive -LiteralPath 'C:\Temp\GPO.zip' -DestinationPath 'C:\Temp\GPO\'-Force
 
-Copy-Item -Recurse -Path 'C:\Temp\ADMX\GoogleChromePolicyTemplates\*' -Destination 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions' -Force
-Copy-Item -Recurse -Path 'C:\Temp\ADMX\MicrosoftEdgePolicyTemplates\*' -Destination 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions' -Force
-Copy-Item -Recurse -Path 'C:\Temp\ADMX\MicrosoftOfficePolicyTemplates\*' -Destination 'C:\Windows\SYSVOL\domain\Policies\PolicyDefinitions' -Force
 
 ##Importer sikkerhetskopierte GPOer og Migration Table
 import-gpo -BackupGpoName CONTOSO-CLIENT_AppLocker -TargetName CONTOSO-CLIENT_AppLocker -path C:\Temp\GPO\GPO\GPOs -MigrationTable C:\Temp\GPO\GPO\migtable.migtable -CreateIfNeeded
