@@ -1,4 +1,4 @@
-#####################################################################################################
+﻿#####################################################################################################
 #  Setter først opp Central Store for Templates og legger til Chrome, Edge og Office-templates her. #
 #  Importerer så sikerhetskopierte GPOer og Migration Table inn og oppretter ny gruppepolicyer.     #
 #  Linker så disse policyene til korrekte OUer.                                                     #
