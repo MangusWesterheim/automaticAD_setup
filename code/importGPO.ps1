@@ -1,4 +1,4 @@
-﻿#####################################################################################################
+#####################################################################################################
 #  Setter først opp Central Store for Templates og legger til Chrome, Edge og Office-templates her. #
 #  Importerer så sikerhetskopierte GPOer og Migration Table inn og oppretter ny gruppepolicyer.     #
 #  Linker så disse policyene til korrekte OUer.                                                     #
@@ -35,7 +35,6 @@ Expand-Archive -LiteralPath 'C:\Temp\GPO.zip' -DestinationPath 'C:\Temp\GPO\'-Fo
 
 $gpoPath = 'C:\Temp\GPO\GPO\GPOs'
 $migtable = 'C:\Temp\GPO\GPO\migtable.migtable'
-import-gpo -BackupGpoName CONTOSO-CLIENT_AppLocker -TargetName CONTOSO-CLIENT_AppLocker -path $gpoPath -MigrationTable $migtable -CreateIfNeeded
 
 $gpoName1 = @("CONTOSO-CLIENT_AppLocker", "CONTOSO-CLIENT_AuditPolicy", "CONTOSO-CLIENT_ClientSettings", "CONTOSO-CLIENT_IE_EDGE_CHROME",
     "CONTOSO-CLIENT_LAPS", "CONTOSO-CLIENT_LocalAdministrator", "CONTOSO-CLIENT_OfficeSettings", "CONTOSO-CLIENT_RemoteDesktop",
